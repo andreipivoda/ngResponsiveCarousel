@@ -1,11 +1,11 @@
 <ngb-carousel #ngcarousel>
     <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
-            <img src="assets/3.jpg" alt="Angular Carousel 1">
+            <img src="assets/1.jpg" alt="Angular Carousel 1">
         </div>
         <div class="carousel-caption">
-            <h3>Title Goes Here</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>{{currentStep}}</h3>
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
         </div>
     </ng-template>
     <ng-template ngbSlide>
@@ -13,8 +13,35 @@
             <img src="assets/2.jpg" alt="Angular Carousel 2">
         </div>
         <div class="carousel-caption">
-            <h3>Title Goes Here</h3>
-            <p>Consectetur tortor volutpat pretium.</p>
+            <h3>{{currentStep}}</h3>
+            <!-- <p>Consectetur tortor volutpat pretium.</p> -->
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img src="assets/3.jpg" alt="Angular Carousel 2">
+        </div>
+        <div class="carousel-caption">
+            <h3>{{currentStep}}</h3>
+            <!-- <p>Consectetur tortor volutpat pretium.</p> -->
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img src="assets/4.jpg" alt="Angular Carousel 2">
+        </div>
+        <div class="carousel-caption">
+            <h3>{{currentStep}}</h3>
+            <!-- <p>Consectetur tortor volutpat pretium.</p> -->
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img src="assets/5.jpg" alt="Angular Carousel 2">
+        </div>
+        <div class="carousel-caption">
+            <h3>{{currentStep}}</h3>
+            <!-- <p>Consectetur tortor volutpat pretium.</p> -->
         </div>
     </ng-template>
 </ngb-carousel>
