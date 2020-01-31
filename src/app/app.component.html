@@ -4,7 +4,7 @@
             <img src="assets/1.jpg" alt="Angular Carousel 1">
         </div>
         <div class="carousel-caption">
-            <h3>{{currentStep}}</h3>
+            <!-- <h3>{{currentStep}}</h3> -->
             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
         </div>
     </ng-template>
@@ -13,7 +13,7 @@
             <img src="assets/2.jpg" alt="Angular Carousel 2">
         </div>
         <div class="carousel-caption">
-            <h3>{{currentStep}}</h3>
+            <!-- <h3>{{currentStep}}</h3> -->
             <!-- <p>Consectetur tortor volutpat pretium.</p> -->
         </div>
     </ng-template>
@@ -22,7 +22,7 @@
             <img src="assets/3.jpg" alt="Angular Carousel 2">
         </div>
         <div class="carousel-caption">
-            <h3>{{currentStep}}</h3>
+            <!-- <h3>{{currentStep}}</h3> -->
             <!-- <p>Consectetur tortor volutpat pretium.</p> -->
         </div>
     </ng-template>
@@ -31,7 +31,7 @@
             <img src="assets/4.jpg" alt="Angular Carousel 2">
         </div>
         <div class="carousel-caption">
-            <h3>{{currentStep}}</h3>
+            <!-- <h3>{{currentStep}}</h3> -->
             <!-- <p>Consectetur tortor volutpat pretium.</p> -->
         </div>
     </ng-template>
@@ -40,15 +40,12 @@
             <img src="assets/5.jpg" alt="Angular Carousel 2">
         </div>
         <div class="carousel-caption">
-            <h3>{{currentStep}}</h3>
+            <!-- <h3>{{currentStep}}</h3> -->
             <!-- <p>Consectetur tortor volutpat pretium.</p> -->
         </div>
     </ng-template>
 </ngb-carousel>
 
 <div class="text-center">
-    <!-- <button (click)="navigateToSlide('four')">Go to Slide Four</button> -->
-    <button (click)="getToPrev()">Prev</button>
-    <button (click)="stopCarousel()">Pause</button>
-    <button (click)="goToNext()">Next</button>
+    <h3 [ngClass]="pop === true ? 'fadeOut' : 'fadeIn'">{{currentStep}}</h3>
 </div>

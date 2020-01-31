@@ -46,3 +46,11 @@ ngb-carousel {
 .carousel-indicators {
     z-index: 20;
 }
+
+.fadeIn {
+    opacity: 0;
+}
+
+.fadeOut {
+    opacity: 1;
+}
