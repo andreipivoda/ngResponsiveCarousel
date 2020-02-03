@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   key: string;
   @ViewChild('ngcarousel', { static: true }) ngCarousel: NgbCarousel;
 
+  images = [1,2,3,4];
   ngOnInit() {
     this.stepIsVisible = true;
     this.fadeTimer();
