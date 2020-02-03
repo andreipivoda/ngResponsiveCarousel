@@ -47,5 +47,7 @@
 </ngb-carousel>
 
 <div class="text-center">
-    <h3 [ngClass]="pop === true ? 'fadeOut' : 'fadeIn'">{{currentStep}}</h3>
+    <h3 [ngClass]="stepIsVisible === true ? 'fadeOut' : 'fadeIn'">
+        <img src="{{currentStep}}" width="50">
+    </h3>
 </div>

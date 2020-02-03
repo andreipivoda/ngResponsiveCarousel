@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { NgbSlideEvent, NgbSlideEventSource, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { HostListener } from '@angular/core';
 
 @Component({
@@ -9,80 +9,75 @@ import { HostListener } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Angular Responsive Carousel';
-  pop: boolean;
+  currentStep = 'assets/play.svg';
+  stepIsVisible: boolean;
   key: string;
   @ViewChild('ngcarousel', { static: true }) ngCarousel: NgbCarousel;
 
-  currentStep = 'Auto Playback';
-  ngOnInit() { }
+  ngOnInit() {
+    this.stepIsVisible = true;
+    this.fadeTimer();
+  }
+
+  fadeTimer = () => {
+    setTimeout(() => {
+      console.log('fade');
+      this.stepIsVisible = false;
+    }, 1000);
+  }
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     event.returnValue = false;
     event.preventDefault();
     this.key = event.key;
-    // console.log(event.code);
+    this.changeState(event.code);
 
-    if (event.code === 'F5' || event.code === 'Escape') {
-      this.pop = true;
-      console.log('PLAY');
-      this.restartCarousel();
-      setTimeout(() => {
-        console.log('fade');
-        this.pop = false;
-      }, 1000);
-    } else if (event.code === 'Period') {
-      this.pop = true;
-      console.log('STOP');
-      this.stopCarousel();
-    } else if (event.code === 'PageUp') {
-      this.pop = true;
-      console.log('PREVIOUS');
-      this.getToPrev();
-      setTimeout(() => {
-        console.log('fade');
-        this.pop = false;
-      }, 1000);
-    } else if (event.code === 'PageDown') {
-      this.pop = true;
-      console.log('NEXT');
-      this.goToNext();
-      setTimeout(() => {
-        console.log('fade');
-        this.pop = false;
-      }, 1000);
+  }
+
+  changeState(code: string) {
+    if (this.stepIsVisible === false) {
+      this.stepIsVisible = true;
+      if (code === 'F5' || code === 'Escape') {
+        console.log('PLAY');
+        this.restart();
+      } else if (code === 'Period') {
+        console.log('STOP');
+        this.stop();
+      } else if (code === 'PageUp') {
+        console.log('PREVIOUS');
+        this.previous();
+      } else if (code === 'PageDown') {
+        console.log('NEXT');
+        this.next();
+      }
+      this.fadeTimer();
     }
   }
 
-  // Move to specific slide
-  // navigateToSlide(item) {
-  //   this.ngCarousel.select(item);
-  //   console.log(item)
-  // }
-
   // Move to previous slide
-  getToPrev() {
-    this.currentStep = 'Showing Previous';
+  previous() {
+    this.currentStep = 'assets/backward.svg';
     this.ngCarousel.pause();
     this.ngCarousel.prev();
   }
 
   // Move to next slide
-  goToNext() {
-    this.currentStep = 'Showing Next';
+  next() {
+    this.currentStep = 'assets/forward.svg';
     this.ngCarousel.pause();
     this.ngCarousel.next();
   }
 
   // Pause slide
-  stopCarousel() {
-    this.currentStep = 'Paused';
+  stop() {
+    this.currentStep = 'assets/pause.svg';
     this.ngCarousel.pause();
   }
 
   // Restart carousel
-  restartCarousel() {
-    this.currentStep = 'Auto Playback';
+  restart() {
+    this.currentStep = 'assets/play.svg';
     this.ngCarousel.cycle();
   }
 }
