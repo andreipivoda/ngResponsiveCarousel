@@ -4,7 +4,7 @@ img {
 
 ngb-carousel {
     max-width: 80vw;
-    margin: 50px auto;
+    margin: 5% auto 2% auto;
 }
 
 ngb-carousel img {
