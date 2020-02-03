@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NgbSlideEvent, NgbSlideEventSource, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { HostListener } from '@angular/core';
 
@@ -7,10 +7,10 @@ import { HostListener } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Angular Responsive Carousel';
   pop: boolean;
-  key: any;
+  key: string;
   @ViewChild('ngcarousel', { static: true }) ngCarousel: NgbCarousel;
 
   currentStep = 'Auto Playback';
@@ -22,14 +22,15 @@ export class AppComponent {
     event.preventDefault();
     this.key = event.key;
     // console.log(event.code);
+
     if (event.code === 'F5' || event.code === 'Escape') {
       this.pop = true;
       console.log('PLAY');
       this.restartCarousel();
-      setTimeout (() => {
+      setTimeout(() => {
         console.log('fade');
         this.pop = false;
-     }, 1000);
+      }, 1000);
     } else if (event.code === 'Period') {
       this.pop = true;
       console.log('STOP');
