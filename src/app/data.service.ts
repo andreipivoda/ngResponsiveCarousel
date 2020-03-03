@@ -7,13 +7,14 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class DataService {
 
-  path = "http://art-app24/portal-iro/api/carousel";
+  path = 'http://art-app24/portal-iro/api/carousel';
 
   constructor(private http: HttpClient) { }
 
   getPictures() {
     return this.http.get(this.path).pipe(
       retry(3) // retry a failed request up to 3 times
-    );;
+    );
   }
 }
+
