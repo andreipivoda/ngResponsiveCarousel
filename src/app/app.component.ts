@@ -17,19 +17,19 @@ export class AppComponent implements OnInit {
   @ViewChild('ngcarousel', { static: true }) ngCarousel: NgbCarousel;
 
   constructor(private data: DataService) { }
+
   ngOnInit() {
     this.stepIsVisible = true;
     this.fadeTimer();
-    this.data.getPictures().subscribe((data: any[]) => {
+    this.data.getPictures().subscribe((data: string[]) => {
       console.log(data);
       this.images = data;
-    })
+    });
+    setTimeout(() => {
+      console.log('page refresh');
+    }, 300000);
 
   }
-
-
-
-
 
   fadeTimer = () => {
     setTimeout(() => {
