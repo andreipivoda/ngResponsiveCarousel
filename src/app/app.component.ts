@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { HostListener } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,23 @@ export class AppComponent implements OnInit {
   currentStep = 'assets/play.svg';
   stepIsVisible: boolean;
   key: string;
+  images: string[];
   @ViewChild('ngcarousel', { static: true }) ngCarousel: NgbCarousel;
 
-  images = [1,2,3,4];
+  constructor(private data: DataService) { }
   ngOnInit() {
     this.stepIsVisible = true;
     this.fadeTimer();
+    this.data.getPictures().subscribe((data: any[]) => {
+      console.log(data);
+      this.images = data;
+    })
+
   }
+
+
+
+
 
   fadeTimer = () => {
     setTimeout(() => {
