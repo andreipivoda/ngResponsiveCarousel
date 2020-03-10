@@ -7,8 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class DataService {
 
-  path = 'http://art-app24/portal-iro/api/carousel';
-  // path = 'http://localhost:3000/pictures';
+  path = 'http://localhost:3000/pictures';
   // json-server --watch db.json
 
   constructor(private http: HttpClient) { }

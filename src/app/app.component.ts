@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.fadeTimer();
     this.data.getPictures().subscribe((data: string[]) => {
       console.log(data);
-      this.images = data;
+      this.images = Array.from(data);
     });
     setTimeout(() => {
       console.log('page refresh');
